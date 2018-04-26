@@ -1,9 +1,9 @@
-var webpack = require('webpack');
+const webpack = require('webpack');
 
 /*
  * Default webpack configuration for development
  */
-var config = {
+let config = {
   devtool: 'eval-source-map',
   entry:  __dirname + "/app/App.js",
   output: {
@@ -26,7 +26,7 @@ var config = {
     historyApiFallback: true,
     inline: true
   },
-}
+};
 
 /*
  * If bundling for production, optimize output
@@ -40,6 +40,6 @@ if (process.env.NODE_ENV === 'production') {
       'process.env': {NODE_ENV: JSON.stringify('production')}
     })
   ];
-};
+}
 
 module.exports = config;
