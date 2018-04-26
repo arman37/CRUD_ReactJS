@@ -1,7 +1,10 @@
 /**
- * Created by Arman on 10/3/2016.
+ *
+ * @author arman
+ * @since 10/3/2016.
+ *
  */
-"use strict";
+'use strict';
 
 import React, {Component, PropTypes} from 'react';
 import IconMenu from 'material-ui/IconMenu';
@@ -12,50 +15,50 @@ import MenuItem from 'material-ui/MenuItem';
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
 
 class CustomToolbar extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            value: 3,
-        };
-    }
+  constructor(props) {
+    super(props);
 
-    renderCreatePerson() {
-        this.context.router.push('/create/person');
-    }
+    this.state = {
+      value: 3,
+    };
+  }
 
-    goTo() {
-        this.context.router.push('/');
-    }
+  renderCreatePerson() {
+    this.context.router.push('/create/person');
+  }
 
-    handleChange(event, index, value){
-        this.setState({value});
-    }
+  goTo() {
+    this.context.router.push('/');
+  }
 
-    render() {
-        return (
-            <Toolbar>
-                <ToolbarGroup firstChild={true}>
-                    <RaisedButton label="Create Person" primary={true} onClick={this.renderCreatePerson.bind(this)}/>
-                </ToolbarGroup>
-                <ToolbarGroup>
-                    <ToolbarSeparator />
-                <IconMenu
-                    iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
-                    anchorOrigin={{horizontal: 'right', vertical: 'top'}}
-                    targetOrigin={{horizontal: 'right', vertical: 'top'}}
-                >
-                    <MenuItem primaryText="Settings" />
-                    <MenuItem primaryText="Help" />
-                    <MenuItem primaryText="Sign out" onClick={this.goTo.bind(this)}/>
-                </IconMenu>
-                </ToolbarGroup>
-            </Toolbar>
-        );
-    }
-};
+  handleChange(event, index, value) {
+    this.setState({value});
+  }
+
+  render() {
+    return (
+      <Toolbar>
+        <ToolbarGroup firstChild={true}>
+          <RaisedButton label="Create Person" primary={true} onClick={this.renderCreatePerson.bind(this)}/>
+        </ToolbarGroup>
+        <ToolbarGroup>
+          <ToolbarSeparator />
+          <IconMenu
+            iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
+            anchorOrigin={{horizontal: 'right', vertical: 'top'}}
+            targetOrigin={{horizontal: 'right', vertical: 'top'}} >
+            <MenuItem primaryText="Settings" />
+            <MenuItem primaryText="Help" />
+            <MenuItem primaryText="Sign out" onClick={this.goTo.bind(this)} />
+          </IconMenu>
+        </ToolbarGroup>
+      </Toolbar>
+    );
+  }
+}
 
 CustomToolbar.contextTypes = {
-    router: PropTypes.object.isRequired
+  router: PropTypes.object.isRequired
 };
 
 export default CustomToolbar;
